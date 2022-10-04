@@ -4,16 +4,28 @@
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-function generatePassword (){
+function generatePassword () {
+
   var userInput = window.prompt("What's the lenght of the password?")
 
   var passwordLenght = parseInt(userInput)
 
   if (isNaN(passwordLenght)) {
     window.alert("Not a number")
-  } else {
-    window.alert("Your password will be " + passwordLenght + " characters long.")
-  }
+    return
+}
+
+if (passwordLenght < 8 || passwordLenght > 128) {
+  window.alert('Password must be 8 to 128 characters long.')
+  return
+}
+
+var addNumbers = window.confirm("Do you want your password to include numbers?")
+var addUppercase = window.confirm("Do you want your password to include lowercase letters?")
+var addLowercase = window.confirm("Do you want your password to include uppercase letters?")
+var addNSpecialCharacters = window.confirm("Do you want your password to include special characters?")
+
+
 
 }
 
