@@ -9,13 +9,12 @@ function randomInt(min, max) {
     max - min
     min - 0
   }
-
   var rand = Math.random()
   return Math.floor(min*(1 - rand) + rand*max)
 }
 
 function randomCharacter(list) {
-return list [randomInt(0, list.length -1)]
+  return list[randomInt(0, list.length-1)]
 }
 
 
@@ -52,20 +51,24 @@ for (var i = 0; i < lettersList.length; i++) {
  } 
 
 
-if (addNumbers === true) {
+if (addNumbers) {
   allOptions.push(numbersOptions)
 }
 
-if (addUppercase === true) {
+if (addUppercase) {
   allOptions.push(lettersUpper)
 }
 
-if (addLowercase === true) {
+if (addLowercase) {
   allOptions.push(lettersList)
 }
 
-if (addSpecialCharacters === true) {
+if (addSpecialCharacters) {
   allOptions.push(symbolsOptions)
+}
+
+if (allOptions === 0) {
+  allOptions.push(lettersList)
 }
 
 var newPassword = ""
@@ -76,9 +79,9 @@ for (var i = 0; i < passwordLenght; i++) {
   newPassword += randomChar
 }
 
-console.log(newPassword)
 
 
+return newPassword
 
 }
 
