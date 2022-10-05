@@ -33,7 +33,7 @@ var lettersUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", 
 var allOptions = []
 
 if (addNumbers === true) {
-  allOptions.push(addNumbers)
+  allOptions.push(numbersOptions)
 }
 
 if (addUppercase === true) {
@@ -41,11 +41,11 @@ if (addUppercase === true) {
 }
 
 if (addLowercase === true) {
-  allOptions.push(addLowercase)
+  allOptions.push(lettersList)
 }
 
 if (addSpecialCharacters === true) {
-  allOptions.push(addSpecialCharacters)
+  allOptions.push(symbolsOptions)
 }
 
 console.log(allOptions)
