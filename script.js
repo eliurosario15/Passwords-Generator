@@ -4,15 +4,22 @@
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-function generatePassword () {
-
 function randomInt(min, max) {
-    return Math.floor(Math.random()*(max - min) +min)
+  if (!max) {
+    max - min
+    min - 0
   }
 
-function randomCharacter(list) {
-  return list [randomInt(0, list.length -1)]
+  var rand = Math.random()
+  return Math.floor(min*(1 - rand) + rand*max)
 }
+
+function randomCharacter(list) {
+return list [randomInt(0, list.length -1)]
+}
+
+
+function generatePassword () {
 
 var userInput = window.prompt("What's the lenght of the password?")
 
@@ -29,16 +36,21 @@ if (passwordLenght < 8 || passwordLenght > 128) {
 }
 
 var addNumbers = window.confirm("Do you want your password to include numbers?")
-var addUppercase = window.confirm("Do you want your password to include lowercase letters?")
-var addLowercase = window.confirm("Do you want your password to include uppercase letters?")
+var addUppercase = window.confirm("Do you want your password to include uppercase letters?")
+var addLowercase = window.confirm("Do you want your password to include lowercase letters?")
 var addSpecialCharacters = window.confirm("Do you want your password to include special characters?")
 
 var numbersOptions = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 var symbolsOptions = ["!", "@", "#", "$", "%", "&", "*"]
-var lettersList = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-var lettersUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+var lettersList = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+var lettersUpper = []
 
 var allOptions = []
+
+for (var i = 0; i < lettersList.length; i++) {
+  lettersUpper[i] = lettersList[i].toUpperCase()
+ } 
+
 
 if (addNumbers === true) {
   allOptions.push(numbersOptions)
@@ -58,12 +70,14 @@ if (addSpecialCharacters === true) {
 
 var newPassword = ""
 
-for (var i = 0; i <passwordLenght; i++) {
+for (var i = 0; i < passwordLenght; i++) {
   var randomlist = randomCharacter(allOptions)
-  var randomeChar = randomCharacter(randomlist)
+  var randomChar = randomCharacter(randomlist)
+  newPassword += randomChar
 }
 
-console.log(allOptions)
+console.log(newPassword)
+
 
 
 }
