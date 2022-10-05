@@ -6,6 +6,10 @@ var generateBtn = document.querySelector("#generate");
 
 function generatePassword () {
 
+  function randomInt(min, max) {
+    return Math.floor(Math.random()*(max - min) +min)
+  }
+
   var userInput = window.prompt("What's the lenght of the password?")
 
   var passwordLenght = parseInt(userInput)
@@ -46,6 +50,12 @@ if (addLowercase === true) {
 
 if (addSpecialCharacters === true) {
   allOptions.push(symbolsOptions)
+}
+
+var newPassword = ""
+
+for (var i = 0; i <passwordLenght; i++) {
+  var randomItem = allOptions[randomInt(0, allOptions.length -1)]
 }
 
 console.log(allOptions)
