@@ -6,13 +6,17 @@ var generateBtn = document.querySelector("#generate");
 
 function generatePassword () {
 
-  function randomInt(min, max) {
+function randomInt(min, max) {
     return Math.floor(Math.random()*(max - min) +min)
   }
 
-  var userInput = window.prompt("What's the lenght of the password?")
+function randomCharacter(list) {
+  return list [randomInt(0, list.length -1)]
+}
 
-  var passwordLenght = parseInt(userInput)
+var userInput = window.prompt("What's the lenght of the password?")
+
+var passwordLenght = parseInt(userInput)
 
   if (isNaN(passwordLenght)) {
     window.alert("Not a number")
@@ -55,7 +59,8 @@ if (addSpecialCharacters === true) {
 var newPassword = ""
 
 for (var i = 0; i <passwordLenght; i++) {
-  var randomItem = allOptions[randomInt(0, allOptions.length -1)]
+  var randomlist = randomCharacter(allOptions)
+  var randomeChar = randomCharacter(randomlist)
 }
 
 console.log(allOptions)
