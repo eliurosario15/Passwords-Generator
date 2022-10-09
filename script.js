@@ -13,10 +13,9 @@ function randomInt(min, max) {
   return Math.floor(min*(1 - rand) + rand*max)
 }
 
-function randomCharacter(list) {
-  return list[randomInt(0, list.length-1)]
+function getrandomCharacter(list) {
+  return list[randomInt(0, list.length -1)]
 }
-
 
 function generatePassword () {
 
@@ -39,24 +38,24 @@ var addUppercase = window.confirm("Do you want your password to include uppercas
 var addLowercase = window.confirm("Do you want your password to include lowercase letters?")
 var addSpecialCharacters = window.confirm("Do you want your password to include special characters?")
 
-var numbersOptions = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-var symbolsOptions = ["!", "@", "#", "$", "%", "&", "*"]
+var numbersList = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+var symbolsList = ["!", "@", "#", "$", "%", "&", "*"]
 var lettersList = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-var lettersUpper = []
+var upperList = []
 
 var allOptions = []
 
 for (var i = 0; i < lettersList.length; i++) {
-  lettersUpper[i] = lettersList[i].toUpperCase()
+  upperList[i] = lettersList[i].toUpperCase()
  } 
 
 
 if (addNumbers) {
-  allOptions.push(numbersOptions)
+  allOptions.push(numbersList)
 }
 
 if (addUppercase) {
-  allOptions.push(lettersUpper)
+  allOptions.push(upperList)
 }
 
 if (addLowercase) {
@@ -64,7 +63,7 @@ if (addLowercase) {
 }
 
 if (addSpecialCharacters) {
-  allOptions.push(symbolsOptions)
+  allOptions.push(symbolsList)
 }
 
 if (allOptions === 0) {
@@ -74,8 +73,8 @@ if (allOptions === 0) {
 var newPassword = ""
 
 for (var i = 0; i < passwordLenght; i++) {
-  var randomlist = randomCharacter(allOptions)
-  var randomChar = randomCharacter(randomlist)
+  var randomlist = getrandomCharacter(allOptions)
+  var randomChar = getrandomCharacter(randomlist)
   newPassword += randomChar
 }
 
